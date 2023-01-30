@@ -3,15 +3,15 @@ import { createContext, useContext, useState } from 'react';
 const GameContext = createContext();
 const GameProvider = ({ children }) => {
   const [gameBoard, setGameBoard] = useState([
-    { space: 1, content: '' },
-    { space: 2, content: '' },
-    { space: 3, content: '' },
-    { space: 4, content: '' },
-    { space: 5, content: '' },
-    { space: 6, content: '' },
-    { space: 7, content: '' },
-    { space: 8, content: '' },
-    { space: 9, content: '' },
+    { box: 1, content: '' },
+    { box: 2, content: '' },
+    { box: 3, content: '' },
+    { box: 4, content: '' },
+    { box: 5, content: '' },
+    { box: 6, content: '' },
+    { box: 7, content: '' },
+    { box: 8, content: '' },
+    { box: 9, content: '' },
   ]);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [active, setActive] = useState(false);
@@ -43,6 +43,10 @@ const useGameContext = () => {
   }
 
   return context;
+};
+
+const chooseBox = (setGameBoard, gameBoard, box, currentPlayer) => {
+  setGameBoard((gameBoard[box - 1].content = currentPlayer));
 };
 
 export { GameProvider, useGameContext };

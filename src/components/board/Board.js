@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGameContext } from '../../context/GameContext.js';
+import { useGameContext, chooseBox } from '../../context/GameContext.js';
 import Box from '../box/Box.js';
 
 export default function Board() {
@@ -10,7 +10,7 @@ export default function Board() {
   return (
     <div>
       {gameBoard.map((square, index) => (
-        <Box key={index} value={square} />
+        <Box onClick={chooseBox} key={index} value={square} />
       ))}
     </div>
   );
